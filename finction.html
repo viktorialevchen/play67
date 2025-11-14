@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Функция</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style>
+		/* фон - дорога */
+		.background {
+			background-image: url('road.jpg');
+			background-size: 100% 100%;
+			height: 400px;
+		}
+		/* девочка с позишн абсолют */
+		.human {
+			background-image: url('player.png');
+			background-size: 100% 100%;
+			height: 130px;
+			width: 50px;
+			
+			position: absolute;
+			transition: 1s;
+			left: 50px;
+			top: 10px;
+		}	
+
+
+		.chat{
+			background-color: yellow;
+			width: 95.5em;
+			height: 2rem;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="background">
+		<div class="human">
+		</div>
+	</div>
+	<p class="chat"></p>
+	<script>
+	
+        let chat = document.querySelector('.chat')
+        let player = document.querySelector('.human');
+         let numLeft = 50;
+
+		  function moveRight() {
+          numLeft = numLeft + 100;
+          player.style.left = numLeft + 'px';
+        }
+
+
+
+
+		function moveBottom() {
+ 
+  let numDown = player.offsetTop;
+  numDown += 100;
+  player.style.top = numDown + 'px';
+}
+
+
+
+
+
+function moveTop() {
+ 
+  let numTop = parseInt(player.style.top) || 0;
+  numTop -= 100;
+  player.style.top = numTop + 'px';
+} 
+let messages = ["Привет", "Как дела?"];
+let index = 0;
+
+function talk() {
+  chat.textContent = messages[index];  
+  index++;
+
+ 
+}
+	</script>
+</body>
+</html>
